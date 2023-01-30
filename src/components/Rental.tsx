@@ -1,8 +1,8 @@
-import type { FC } from "react";
-import Link from "next/link";
-import RentalImage from "./rental/RentalImage";
 import type { Rental as RentalModel } from "@prisma/client";
+import Link from "next/link";
+import type { FC } from "react";
 import Map from "./Map";
+import RentalImage from "./rental/RentalImage";
 
 export type RentalProps = {
   rental: RentalModel;

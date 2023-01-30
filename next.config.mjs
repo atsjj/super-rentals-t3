@@ -14,5 +14,17 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.mapbox.com",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+    ],
+  },
 };
 export default config;

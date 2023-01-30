@@ -1,5 +1,5 @@
-import { type FC, useState } from "react";
 import type { Rental as RentalModel } from "@prisma/client";
+import { useState, type FC } from "react";
 import Rental from "./Rental";
 
 export type RentalsProps = {

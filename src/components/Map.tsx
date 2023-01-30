@@ -1,10 +1,13 @@
-import type { FC, ComponentProps } from "react";
+import Image from "next/image.js";
+import type { FC } from "react";
 import { env } from "../env/client.mjs";
 
-export type MapProps = ComponentProps<"img"> & {
-  lat?: number;
-  lng?: number;
-  zoom?: number | string;
+export type MapProps = typeof Image & {
+  lat?: number | `${number}`;
+  lng?: number | `${number}`;
+  width?: number | `${number}`;
+  height?: number | `${number}`;
+  zoom?: number | `${number}`;
 };
 
 const MAPBOX_API = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static";
@@ -18,8 +21,8 @@ const Map: FC<MapProps> = (props) => {
 
   return (
     <div className="map">
-      <img
-        alt={`Map image at coordinates ${lat},${lng}`}
+      <Image
+        alt={`Map image at coordinates ${lat || ""},${lng || ""}`}
         {...props}
         src={`${MAPBOX_API}/${coordinates}/${dimensions}@2x?${accessToken}`}
         width={props.width}
