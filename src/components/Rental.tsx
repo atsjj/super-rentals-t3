@@ -3,20 +3,11 @@ import Link from "next/link";
 import type { FC } from "react";
 import Map from "./Map";
 import RentalImage from "./rental/RentalImage";
+import RentalType from "./RentalType";
 
 export type RentalProps = {
   rental: RentalModel;
 };
-
-const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
-
-function calculateType(rental: RentalModel) {
-  if (COMMUNITY_CATEGORIES.includes(rental.category)) {
-    return "Community";
-  } else {
-    return "Standalone";
-  }
-}
 
 const Rental: FC<RentalProps> = ({ rental }) => {
   return (
@@ -35,7 +26,7 @@ const Rental: FC<RentalProps> = ({ rental }) => {
           <span>Owner:</span> {rental.owner}
         </div>
         <div className="detail type">
-          <span>Type:</span> {calculateType(rental)}
+          <span>Type:</span> <RentalType category={rental.category} />
         </div>
         <div className="detail location">
           <span>Location:</span> {rental.city}

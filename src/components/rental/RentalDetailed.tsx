@@ -2,22 +2,13 @@ import type { Rental as RentalModel } from "@prisma/client";
 import type { FC } from "react";
 import Jumbo from "../Jumbo";
 import Map from "../Map";
+import RentalType from "../RentalType";
 import ShareButton from "../ShareButton";
 import RentalImage from "./RentalImage";
 
 export type RentalDetailedProps = {
   rental?: RentalModel;
 };
-
-const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
-
-function calculateType(rental?: RentalModel) {
-  if (COMMUNITY_CATEGORIES.includes(rental?.category || "")) {
-    return "Community";
-  } else {
-    return "Standalone";
-  }
-}
 
 const RentalDetailed: FC<RentalDetailedProps> = ({ rental }) => {
   return (
@@ -47,7 +38,7 @@ const RentalDetailed: FC<RentalDetailedProps> = ({ rental }) => {
             <span>Owner:</span> {rental?.owner}
           </div>
           <div className="detail type">
-            <span>Type:</span> {calculateType(rental)} – {rental?.category}
+            <span>Type:</span> <RentalType category={rental?.category} /> – {rental?.category}
           </div>
           <div className="detail location">
             <span>Location:</span> {rental?.city}

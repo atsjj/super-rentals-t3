@@ -8,6 +8,7 @@ export type MapProps = typeof Image & {
   width?: number | `${number}`;
   height?: number | `${number}`;
   zoom?: number | `${number}`;
+  alt?: string;
 };
 
 const MAPBOX_API = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static";
