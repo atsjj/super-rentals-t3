@@ -4,14 +4,14 @@ export type RentalTypeProps = {
   category?: string;
 };
 
-const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
+const COMMUNITY_CATEGORIES = ["Condo", "Townhouse", "Apartment"];
 
 const RentalType: FC<RentalTypeProps> = ({ category }) => {
-  const type = COMMUNITY_CATEGORIES.includes(category || "") ? "Community" : "Standalone";
+  const type = COMMUNITY_CATEGORIES.includes(category || "")
+    ? "Community"
+    : "Standalone";
 
-  return (
-    <>{type}</>
-  );
+  return <>{type}</>;
 };
 
 export default RentalType;

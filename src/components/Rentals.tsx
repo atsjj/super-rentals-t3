@@ -13,12 +13,20 @@ const Rentals: FC<RentalsProps> = ({ rentals }) => {
     <div className="rentals">
       <label>
         <span>Where would you like to stay?</span>
-        <input value={query} className="light" onChange={e => setQuery(e.target.value.toLowerCase())} />
+        <input
+          value={query}
+          className="light"
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
+        />
       </label>
       <ul className="results">
-        {rentals?.filter(rental => rental.title.toLowerCase().includes(query)).map(rental => (
-          <li key={rental.id}><Rental rental={rental} /></li>
-        ))}
+        {rentals
+          ?.filter((rental) => rental.title.toLowerCase().includes(query))
+          .map((rental) => (
+            <li key={rental.id}>
+              <Rental rental={rental} />
+            </li>
+          ))}
       </ul>
     </div>
   );

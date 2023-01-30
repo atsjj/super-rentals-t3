@@ -17,8 +17,13 @@ const Home: NextPage = () => {
       </Head>
       <Jumbo>
         <h2>Welcome to Super Rentals!</h2>
-        <p>We hope you find exactly what you&apos;re looking for in a place to stay.</p>
-        <Link href="/about" className="button">About Us</Link>
+        <p>
+          We hope you find exactly what you&apos;re looking for in a place to
+          stay.
+        </p>
+        <Link href="/about" className="button">
+          About Us
+        </Link>
       </Jumbo>
 
       <Rentals rentals={rentals.data} />

@@ -15,7 +15,9 @@ const RentalDetailed: FC<RentalDetailedProps> = ({ rental }) => {
     <>
       <Jumbo>
         <h2>{rental?.title}</h2>
-        <p>Nice find! This looks like a nice place to stay near {rental?.city}.</p>
+        <p>
+          Nice find! This looks like a nice place to stay near {rental?.city}.
+        </p>
         <ShareButton
           text={`Check out ${rental?.title || ""} on Super Rentals!`}
           hashtags="vacation,travel,authentic,blessed,superrentals"
@@ -38,7 +40,8 @@ const RentalDetailed: FC<RentalDetailedProps> = ({ rental }) => {
             <span>Owner:</span> {rental?.owner}
           </div>
           <div className="detail type">
-            <span>Type:</span> <RentalType category={rental?.category} /> – {rental?.category}
+            <span>Type:</span> <RentalType category={rental?.category} /> –{" "}
+            {rental?.category}
           </div>
           <div className="detail location">
             <span>Location:</span> {rental?.city}

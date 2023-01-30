@@ -7,9 +7,11 @@ export const rentalRouter = createTRPCRouter({
   }),
 
   getRentalById: publicProcedure
-    .input(z.object({
-      id: z.string(),
-    }))
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
     .query(({ ctx, input }) => {
       return ctx.prisma.rental.findUnique({
         where: {

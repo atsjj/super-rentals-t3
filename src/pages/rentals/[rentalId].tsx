@@ -14,7 +14,10 @@ const Rental: NextPage = () => {
     <>
       <Head>
         <title>Super Rentals, Rental {rental.data?.title}</title>
-        <meta name="description" content={`Rental details for ${rental.data?.title || ""}`} />
+        <meta
+          name="description"
+          content={`Rental details for ${rental.data?.title || ""}`}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <RentalDetailed rental={rental.data || undefined} />

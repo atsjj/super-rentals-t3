@@ -12,10 +12,7 @@ export type RentalProps = {
 const Rental: FC<RentalProps> = ({ rental }) => {
   return (
     <article className="rental">
-      <RentalImage
-        src={rental.image}
-        alt={`A picture of ${rental.title}`}
-      />
+      <RentalImage src={rental.image} alt={`A picture of ${rental.title}`} />
       <div className="details">
         <h3>
           <Link href={`/rentals/${encodeURIComponent(rental.id)}`}>

@@ -7,23 +7,26 @@ export type ShareButtonProps = PropsWithChildren & {
   via?: string;
 };
 
-const TWEET_INTENT = 'https://twitter.com/intent/tweet';
+const TWEET_INTENT = "https://twitter.com/intent/tweet";
 
-function calculateShareURL(currentURL: string, { text, hashtags, via }: ShareButtonProps) {
+function calculateShareURL(
+  currentURL: string,
+  { text, hashtags, via }: ShareButtonProps
+) {
   const url = new URL(TWEET_INTENT);
 
-  url.searchParams.set('url', currentURL);
+  url.searchParams.set("url", currentURL);
 
   if (text) {
-    url.searchParams.set('text', text);
+    url.searchParams.set("text", text);
   }
 
   if (hashtags) {
-    url.searchParams.set('hashtags', hashtags);
+    url.searchParams.set("hashtags", hashtags);
   }
 
   if (via) {
-    url.searchParams.set('via', via);
+    url.searchParams.set("via", via);
   }
 
   return url;
@@ -32,18 +35,22 @@ function calculateShareURL(currentURL: string, { text, hashtags, via }: ShareBut
 const ShareButton: FC<ComponentProps<"a"> & ShareButtonProps> = (props) => {
   const { text, hashtags, via, children } = props;
   const router = useRouter();
-  const url = calculateShareURL(router.asPath, { text, hashtags, via }).toString();
+  const url = calculateShareURL(router.asPath, {
+    text,
+    hashtags,
+    via,
+  }).toString();
 
   return (
-      <a
-        {...props}
-        href={url}
-        target="_blank"
-        rel="external nofollow noopener noreferrer"
-        className="share button"
-      >
-        {children}
-      </a>
+    <a
+      {...props}
+      href={url}
+      target="_blank"
+      rel="external nofollow noopener noreferrer"
+      className="share button"
+    >
+      {children}
+    </a>
   );
 };
 
